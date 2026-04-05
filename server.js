@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import sqlite3 from 'sqlite3'
+import Database from 'better-sqlite3'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import multer from 'multer'
@@ -46,7 +46,7 @@ app.use(cors())
 app.use(express.json())
 
 // Database
-const db = new sqlite3.Database('./missions.db')
+const db = new Database('./missions.db')
 
 // File upload setup
 const storage = multer.diskStorage({
